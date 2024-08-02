@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakshatra Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f5ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            color: #3366cc;
+            margin-bottom: 1rem;
+        }
+        .quote {
+            background-color: #e6f2ff;
+            border-left: 5px solid #3366cc;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: left;
+            font-style: italic;
+            color: #333333;
+        }
+        .author {
+            color: #666666;
+            text-align: right;
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Nakshatra Library</h1>
+        <div th:each="quote : ${quotes}" class="quote">
+            <p th:text="${#strings.substringBefore(quote, ' - ')}"></p>
+            <p class="author" th:text="${#strings.substringAfter(quote, ' - ')}"></p>
+        </div>
+    </div>
+</body>
+</html>
